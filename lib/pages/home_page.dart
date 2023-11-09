@@ -122,8 +122,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ],
           ),
           SizedBox(
-            height: 25,
+            height: 15,
           ),
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: iconss.length,
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 50),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage("img/" + iconss[index]),
+                                fit: BoxFit.cover)),
+                      )
+                    ],
+                  );
+                }),
+          )
         ],
       ),
     );
