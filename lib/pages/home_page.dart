@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     "hiking.png",
     "balloning.png"
   ];
+  List namesOfImages = ["snorkling", "kayaking", "hiking", "balloning"];
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -132,20 +133,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 scrollDirection: Axis.horizontal,
                 itemCount: iconss.length,
                 itemBuilder: (_, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 50),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                            image: DecorationImage(
-                                image: AssetImage("img/" + iconss[index]),
-                                fit: BoxFit.cover)),
-                      )
-                    ],
+                  return Container(
+                    margin: const EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: EdgeInsets.only(right: 50),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white,
+                              image: DecorationImage(
+                                  image: AssetImage("img/" + iconss[index]),
+                                  fit: BoxFit.cover)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: AppText(
+                            text: namesOfImages[index],
+                            color: AppColors.textColor2,
+                          ),
+                        )
+                      ],
+                    ),
                   );
                 }),
           )
