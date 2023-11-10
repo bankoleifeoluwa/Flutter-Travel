@@ -168,6 +168,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 }
 
+// ignore: must_be_immutable
 class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;
